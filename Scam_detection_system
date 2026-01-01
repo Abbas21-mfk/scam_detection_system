@@ -1,0 +1,65 @@
+# SMS Spam/Scam Detection AI
+
+This is a **text classification AI model** that can detect whether a message is **spam (scam)** or **ham (legitimate)**. It uses **Naive Bayes** and **TF-IDF vectorization** to classify SMS messages.
+
+---
+
+## 📌 Features
+
+- Detects spam and legitimate messages
+- Works with any text message input
+- Accuracy: ~96% on the SMS Spam Collection Dataset
+- Simple, fast, and easy to use
+
+---
+
+## 🗂 Dataset
+
+- **Source:** [SMS Spam Collection Dataset on Kaggle](https://www.kaggle.com/datasets/uciml/sms-spam-collection-dataset)
+- **Size:** 5,572 messages
+- **Columns:**
+  - `label` → `ham` (legitimate) or `spam` (scam)
+  - `text` → the message content
+
+---
+
+## 🛠️ Technologies Used
+
+- Python 3.x
+- Pandas
+- scikit-learn (Naive Bayes, TF-IDF, train-test split)
+
+---
+
+## ⚡ How It Works
+
+1. **Load dataset** → CSV file from Kaggle  
+2. **Preprocess data** → Keep only relevant columns, clean labels  
+3. **Vectorize messages** → Convert text to numbers using TF-IDF  
+4. **Train Naive Bayes model** → Learn patterns between words and labels  
+5. **Predict new messages** → Detect spam or ham  
+
+---
+
+## 📊 Model Performance
+
+- **Accuracy:** 96%  
+- **Confusion Matrix:**  
+
+| Actual \ Predicted | ham  | spam |
+|------------------|------|------|
+| ham               | 965  | 0    |
+| spam              | 42   | 108  |
+
+- **Precision, Recall, F1-Score:** Good balance, especially strong at detecting legitimate messages  
+
+---
+
+## 🖥️ Usage
+
+```python
+# Example: Interactive spam detector
+msg = "Congratulations! You won $1000, claim now!"
+msg_vect = vectorizer.transform([msg])
+pred = model.predict(msg_vect)[0]
+print(f"Prediction: {pred}")
